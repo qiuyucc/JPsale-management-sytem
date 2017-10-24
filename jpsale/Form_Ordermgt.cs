@@ -18,6 +18,8 @@ namespace jpsale
             InitializeComponent();
             db = new JPsaleEntities();
             orderInfoBindingSource.DataSource = db.OrderInfoes.ToList();
+           
+            
         }
 
         private void pictureBox3_min_MouseHover(object sender, EventArgs e)
@@ -69,7 +71,19 @@ namespace jpsale
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = db.OrderInfoes.Where(x => x.MobileNumber.Contains(textBox1.Text)).ToList();
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                orderInfoBindingSource.DataSource = db.OrderInfoes.ToList();
+            }
+            else
+            {
+                orderInfoBindingSource.DataSource = db.OrderInfoes.Where(x => x.MobileNumber.Contains(textBox1.Text)).ToList();
+            }
+           
+                //dataGridView1.DataSource = orderInfoBindingSource.DataSource;
+            
+
+            //orderInfoBindingSource.Current == null;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -97,7 +111,7 @@ namespace jpsale
             {
                 if (frm.ShowDialog() == DialogResult.OK)
                     orderInfoBindingSource.DataSource = db.OrderInfoes.ToList();
-                dataGridView1.Refresh();
+                  
             }
         }
 
@@ -109,7 +123,6 @@ namespace jpsale
                 {
                     db.OrderInfoes.Remove(orderInfoBindingSource.Current as OrderInfo);
                     orderInfoBindingSource.RemoveCurrent();
-                    
                     db.SaveChanges();
 
                 }

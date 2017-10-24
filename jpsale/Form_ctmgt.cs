@@ -201,7 +201,17 @@ namespace jpsale
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = db.CustomerInfoes.Where(x => x.MobileNumber.Contains(textBox1.Text)).ToList();
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                customerInfoBindingSource.DataSource = db.CustomerInfoes.ToList();
+            }
+            else
+            {
+                customerInfoBindingSource.DataSource = db.CustomerInfoes.Where(x => x.MobileNumber.Contains(textBox1.Text)).ToList();
+            }
+            
+           // dataGridView1.DataSource = customerInfoBindingSource.DataSource;
+
         }
 
         private void btn_back_Click(object sender, EventArgs e)

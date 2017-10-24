@@ -39,15 +39,15 @@
             this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MobileNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TranscationPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeliverDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PurchaseTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btn_back = new System.Windows.Forms.Button();
             this.btn_del = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btn_excel = new System.Windows.Forms.Button();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3_min)).BeginInit();
@@ -111,9 +111,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 16;
-            this.label1.Text = "查找(商品名)";
+            this.label1.Text = "查找(电话)";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataGridView1
@@ -162,6 +162,14 @@
             this.MobileNumber.ReadOnly = true;
             this.MobileNumber.Width = 60;
             // 
+            // productNameDataGridViewTextBoxColumn
+            // 
+            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "商品名";
+            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productNameDataGridViewTextBoxColumn.Width = 70;
+            // 
             // TranscationPrice
             // 
             this.TranscationPrice.DataPropertyName = "TranscationPrice";
@@ -194,6 +202,10 @@
             this.PurchaseTime.ReadOnly = true;
             this.PurchaseTime.Width = 90;
             // 
+            // orderInfoBindingSource
+            // 
+            this.orderInfoBindingSource.DataSource = typeof(jpsale.OrderInfo);
+            // 
             // btn_back
             // 
             this.btn_back.Location = new System.Drawing.Point(558, 406);
@@ -223,18 +235,6 @@
             this.btn_edit.Text = "修改";
             this.btn_edit.UseVisualStyleBackColor = true;
             this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "商品名";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productNameDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // orderInfoBindingSource
-            // 
-            this.orderInfoBindingSource.DataSource = typeof(jpsale.OrderInfo);
             // 
             // btn_excel
             // 

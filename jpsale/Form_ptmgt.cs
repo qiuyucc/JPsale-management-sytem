@@ -180,8 +180,18 @@ namespace jpsale
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = db.ProductInfoes.Where(x => x.ProductName.Contains(textBox1.Text)).ToList();
+            //if (productInfoBindingSource.Current == null)
+            //    return;
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                productInfoBindingSource.DataSource = db.ProductInfoes.ToList();
+            }
+            else
+            {
+                productInfoBindingSource.DataSource = db.ProductInfoes.Where(x => x.ProductName.Contains(textBox1.Text)).ToList();
+            }
         }
+            
 
         private void btn_back_Click(object sender, EventArgs e)
         {
